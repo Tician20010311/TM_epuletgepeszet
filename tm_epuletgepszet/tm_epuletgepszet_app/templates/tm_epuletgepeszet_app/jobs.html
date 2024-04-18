@@ -1,0 +1,186 @@
+{% load static %}
+{% load cookiebanner %}
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>T.M.Épületgépészet</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../static/img/favicon.png" rel="icon">
+  <link href="../../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+  <!-- Template Main CSS File -->
+  <link href="../../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">tmepuletgepeszet@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+(3630) 134-6668</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100065315237478" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/">T.M.Épületgépészet</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="../../static/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Főoldal</a></li>
+          <li><a class="nav-link scrollto" href="#about">Rólunk</a></li>
+          <li class="dropdown"><a href="#"><span>Szolgáltatásaink</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>    
+              <li><a href="#">Vízszerelés</a></li>
+                  <li><a href="#">Gázszerelés</a></li>
+                  <li><a href="#">Dugulás elhárítás</a></li>
+                  <li><a href="#">Korszerűsítés</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#portfolio">Referenciáink</a></li>
+          <li><a class="nav-link scrollto " href="/jobs">Álláslehetőségek</a></li>
+          <li><a class="nav-link scrollto" href="#team">Csapatunk</a></li>
+          
+          <li><a class="nav-link scrollto" href="#contact">Árajánlat kérés</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+    <!-- ======= About Section ======= -->
+    <section id="" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h3><span>Betöltetlen pozicióink</span></h3>
+          <p>Cégünk folyamatosan keresi a tehetséges és szenvedélyes szakembereket, akik szeretnének részt venni kihívásokkal teli projektekben, és hozzájárulni egy fenntarthatóbb jövő megteremtéséhez.</p>
+        </div>
+        {% for job in jobs %}
+        <div class="row m-4">
+          <div class="col-lg-12 pt-4 pt-lg-0 content d-flex flex-column justify-content-center border shadow rounded p-4" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="">{{ job.title }}</h2>
+            <p class="fst-italic">Módosítva: {{ job.created_at }}</p>
+            <p>{{ job.description }}</p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </section><!-- End About Section -->
+
+
+
+
+  </main><!-- End #main -->
+  {% cookiebanner_modal 'vanilla' %}
+
+  {% cookie_accepted 'analytics' as cookie_analytics %}
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Menüpontok</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Főoldal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#about">Rólunk</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#porfolio">Referenciáink</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/jobs">Karrier</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/privacy">Adatkezelés</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Partnereink</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.bosch.hu/" target="_blank">Bosch</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.ariston.com/hu-hu/" target="_blank">Ariston</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://hajdurt.hu/" target="_blank">Hajdút</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.baxi-kazan.hu/" target="_blank">Baxi</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>2024 • T.M.Épületgépészet</h4>
+            <div class="social-links mt-3">
+              <a href="https://www.facebook.com/profile.php?id=100065315237478" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <!-- Vendor JS Files -->
+  <script src="../../static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../../static/vendor/aos/aos.js"></script>
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../../static/vendor/php-email-form/validate.js"></script>
+
+
+
+  <!-- Template Main JS File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+
+</html>
